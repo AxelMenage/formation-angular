@@ -1,0 +1,31 @@
+<h2>Voiture</h2>
+<span *ngIf="voitureAffichee; else elseMarkup">
+  <button (click)="onSelect()" style="width: 10em; height: 10em; margin: 2em; float: left;">Selectionner</button>
+  <label>Marque : {{ voitureAffichee.marque }}</label><br>
+  <label>Modèle : <span [innerHTML]="voitureAffichee.modele"></span></label><br>
+  <span *ngIf="voitureAffichee.couleur" [title]="voitureAffichee.couleur">
+    <label>Couleur : {{ voitureAffichee.couleur?voitureAffichee.couleur:"non connue" }}</label><br>
+  </span>
+  <label>Puissance :
+      <span
+        [class.danger]="voitureAffichee.puissanceFiscale>4"
+        [ngClass]="{danger:voitureAffichee.puissanceFiscale>4, important:voitureAffichee.puissancefiscale>8}"
+        >
+      {{ voitureAffichee.puissanceFiscale }}
+    </span>
+    <!-- <span
+      [style.color]="voitureAffichee.puissanceFiscale>6?'red':'green'"
+      [ngStyle]="{padding: voitureAffichee.puissanceFiscale*10+'px'}"
+      [style.background-color]="voitureAffichee.puissanceFiscale>6?'black':'green'"
+      [style.font-size.px]="voitureAffichee.puissanceFiscale*10"
+      >
+      {{ voitureAffichee.puissanceFiscale }}
+    </span> -->
+  </label><br>
+  <button (click)="voitureAffichee.puissanceFiscale=voitureAffichee.puissanceFiscale+1">Ajouter 1 CV fiscal</button>
+  <hr style="clear: both;">
+</span>
+<ng-template #elseMarkup>
+  <p>La voiture n'est pas définie</p>
+</ng-template>
+

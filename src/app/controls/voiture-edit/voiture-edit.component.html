@@ -1,0 +1,15 @@
+<h3>Edition de voiture</h3>
+<form #formValidation="ngForm" ngForm (submit)="updateVoiture()">
+  <div class="form-group">
+    <label for="marque">Marque</label>
+    <input #marqueValidation="ngModel" type="text" id="marque" name="marque"
+      required minlength="2"
+      [(ngModel)]="cloneVoiture.marque">
+    <span class="danger" *ngIf="marqueValidation.invalid && marqueValidation.errors.required && marqueValidation.touched">La marque est requise</span>
+  </div>
+  <div class="form-group">
+      <label for="modele">Modèle</label>
+      <input type="text" id="modele" name="modele" required minlength="2" [(ngModel)]="cloneVoiture.modele">
+  </div>
+  <input [disabled]="formValidation.invalid" type="submit" name="submit" value="Valider">
+</form>

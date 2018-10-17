@@ -1,0 +1,19 @@
+<h4>Liste des voitures</h4>
+<div *ngIf="voitures && voitures.length>0; else noData">
+  <!-- <ul>
+    <li *ngFor="let v of voitures">
+      {{v.marque}} - {{v.modele}}
+    </li>
+  </ul> -->
+  <ng-container *ngFor="let v of voitures; let i = index; let o = odd;">
+    <app-voiture-item style="display: block;"
+      [class.selected]="v==voitureSelectionnee" (select)="selectVoiture($event);"  *ngIf="i!=0"
+      [voitureAffichee]="v">
+    </app-voiture-item>
+  </ng-container>
+</div>
+<ng-template #noData>
+  <div>
+    Aucune voiture disponible
+  </div>
+</ng-template>

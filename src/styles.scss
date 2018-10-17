@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+$color-danger:red;
+$color-normal:green;
+
+.danger{
+  color: $color-danger;
+
+  &:hover{
+    color:blue;
+  }
+}
+
+.important{
+  text-decoration: underline;
+}
+
+.selected{
+  background-color: lighten($color: $color-danger, $amount: 30%)
+}
+// input.ng-dirty{
+//   border-color: blue;
+// }
+// input.ng-invalid{
+//   border-color: $color-danger;
+// }
+
+// input:focus{
+//   background-color: lighten($color-normal, 30%);
+// }
+
+
