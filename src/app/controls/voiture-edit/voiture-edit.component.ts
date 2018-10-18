@@ -35,7 +35,7 @@ export class VoitureEditComponent implements OnInit {
   cloneVoiture!: Voiture;
 
   updateVoiture(){
-    this.service.updateVoiture(this.voitureEditee, this.cloneVoiture).then(
+    this.service.updateVoiture(this.cloneVoiture).then(
       (c) => {this.voitureEditee=c}
     );
 

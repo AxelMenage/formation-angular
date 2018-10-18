@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, Route, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -10,11 +10,15 @@ import { DataDurService } from './services/data-dur.service';
 import { VoitureEditComponent } from './controls/voiture-edit/voiture-edit.component';
 import { AccueilComponent } from './pages/accueil/accueil.component';
 import { VoitureGestionComponent } from './pages/voiture-gestion/voiture-gestion.component';
+import { VoituresComponent } from './pages/voitures/voitures.component';
+import { VoitureDetailsComponent } from './pages/voiture-details/voiture-details.component';
 
 const routes: Route[] = [
   {path: "", component: AccueilComponent},
   {path: "accueil", component: AccueilComponent},
-  {path: "voitures", component: VoitureGestionComponent}
+  {path: "voitures", component: VoitureGestionComponent},
+  {path: "voituresnav", component: VoituresComponent},
+  {path: "voiture/:id", component: VoitureDetailsComponent}
 ];
 
 @NgModule({
@@ -24,11 +28,15 @@ const routes: Route[] = [
     VoitureListeComponent,
     VoitureEditComponent,
     AccueilComponent,
-    VoitureGestionComponent
+    VoitureGestionComponent,
+    VoitureListeComponent,
+    VoituresComponent,
+    VoitureDetailsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes, {useHash: true})
   ],
   providers: [{provide:DataDurService, useClass:DataDurService}],

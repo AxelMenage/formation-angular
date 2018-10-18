@@ -17,6 +17,20 @@ $color-normal:green;
 .selected{
   background-color: lighten($color: $color-danger, $amount: 30%)
 }
+
+.blur{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(0,0,0,0.5)
+}
+.blur .div{
+  color:white;
+  background-color: red;
+  margin: 20%;
+}
 // input.ng-dirty{
 //   border-color: blue;
 // }

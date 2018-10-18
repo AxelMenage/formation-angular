@@ -1,0 +1,19 @@
+<h3>Index des voitures</h3>
+<div *ngIf="voitures; else waiter">
+  <ul>
+    <li *ngFor="let v of voitures">
+      <a routerLink="/voiture/{{v.id}}"routerLinkActive="router-link-active" >
+        {{v.marque | uppercase}} - {{v.modele}} : {{v.dateContruction | date : 'dd/MM/yyyy hh:mm:ss'}}
+      </a>
+    </li>
+  </ul>
+</div>
+<app-voiture-item *ngFor="let v of voitures" style="display: block;"
+      (click)="goToVoiture(v)"
+      [voitureAffichee]="v">
+    </app-voiture-item>
+<ng-template #waiter>
+  <div class="alert alert-info" role="alert">
+    Chargement en cours
+  </div>
+</ng-template>

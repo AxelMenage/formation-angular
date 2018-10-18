@@ -1,9 +1,24 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <a class="navbar-brand" href="#">{{ title }}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" [routerLink]="['/']" routerLinkActive="router-link-active">Accueil</a>
+      <a class="nav-item nav-link" [routerLink]="['/voitures']" routerLinkActive="router-link-active">Voitures</a>
+      <a class="nav-item nav-link" [routerLink]="['/voituresnav']" routerLinkActive="router-link-active">Voitures nav</a>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
 </div>
-<router-outlet></router-outlet>
+<!--
+<div *ngIf="isServiceBusy" class="blur">
+  <div>
+    Occupé
+  </div>
+</div>-->
 
 
