@@ -1,5 +1,5 @@
 <h3>Voiture</h3>
-<form [formGroup]="formGroup" *ngIf="voitureAffichee && !isBusy && !messageAlerte">
+<form [formGroup]="formGroup" (submit)="save()" *ngIf="voitureAffichee && !isBusy && !messageAlerte">
     <div class="form-group">
       <label for="marque">Marque</label>
       <input formControlName="marque" type="text" id="marque" name="marque" class="form-control" required minlength="2">

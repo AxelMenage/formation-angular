@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Voiture } from 'src/app/models/voiture';
-import { DataDurService } from 'src/app/services/data-dur.service';
+import { ServiceBase } from 'src/app/services/service-base.service';
 
 @Component({
   selector: 'app-voiture-edit',
@@ -28,7 +28,7 @@ export class VoitureEditComponent implements OnInit {
     }
   }
 
-  constructor(private service: DataDurService) {
+  constructor(private service: ServiceBase) {
 
    }
 

@@ -1,2 +1,21 @@
 <h3>Accueil</h3>
-<p>Bienvenue</p>
+<p #madirective="appHighlight" appHighlight='green'>Bienvenue</p>
+{{madirective.lastTime}}/{{madirective.totalTime}}
+
+<table>
+  <tr>
+    <td>0.254878998855 | currency</td>
+    <td>{{0.254878998855 | currency}}</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>0.254878998855 | number</td>
+    <td>{{0.254878998855 | number : '.2-4'}}</td>
+    <td>{{0.2 | number : '.4-8'}}</td>
+  </tr>
+  <tr>
+    <td>promesseDe4 | async</td>
+    <td>{{promesseDe4 | async | null : 0}}</td>
+    <td></td>
+  </tr>
+</table>

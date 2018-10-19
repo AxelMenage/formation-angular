@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Voiture } from 'src/app/models/voiture';
-import { DataDurService } from 'src/app/services/data-dur.service';
+import { ServiceBase } from 'src/app/services/service-base.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,7 +12,7 @@ export class VoituresComponent implements OnInit {
 
   voitures!: Voiture[];
 
-  constructor(private service: DataDurService, private router: Router) { }
+  constructor(private service: ServiceBase, private router: Router) { }
 
   ngOnInit() {
     this.service.getVoitures().then(vs => {

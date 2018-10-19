@@ -5,7 +5,7 @@
       {{v.marque}} - {{v.modele}}
     </li>
   </ul> -->
-  <ng-container *ngFor="let v of voitures; let i = index; let o = odd;">
+  <ng-container *ngFor="let v of voitures; trackBy: trackBy; let i = index; let o = odd;">
     <app-voiture-item style="display: block;"
       [class.selected]="v==voitureSelectionnee" (select)="selectVoiture($event);"  *ngIf="i!=0"
       [voitureAffichee]="v">

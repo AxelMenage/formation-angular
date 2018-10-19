@@ -1,0 +1,13 @@
+<app-change-detector name="A">
+  <app-change-detector name="A1"></app-change-detector>
+  <app-change-detector name="A2"></app-change-detector>
+</app-change-detector>
+<app-change-detector name="B" #b>
+  <app-change-detector name="B1"></app-change-detector>
+  <app-change-detector name="B1"></app-change-detector>
+</app-change-detector>
+<button (click)="b.detach()">Détacher B</button>
+<app-nochange-detector name="C">
+  <app-change-detector name="C1"></app-change-detector>
+  <app-change-detector name="C2"></app-change-detector>
+</app-nochange-detector>

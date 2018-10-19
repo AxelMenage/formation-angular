@@ -1,28 +1,16 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Voiture } from '../models/voiture';
+import { ServiceBase } from './service-base.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DataDurService {
-
-  isBusyChange = new EventEmitter<boolean>();
-
-  private _isBusy : boolean = false;
-  public get isBusy() : boolean {
-    return this._isBusy;
-  }
-  public set isBusy(v : boolean) {
-    if(this._isBusy!=v){
-      this._isBusy = v;
-      this.isBusyChange.emit(v);
-    }
-
-  }
-
+export class DataDurService extends ServiceBase{
 
   voitures: Voiture[] = [];
   constructor() {
+    super();
+
     let v1 = new Voiture();
     v1.marque = "Peugeot";
     v1.modele = "208";
@@ -75,15 +63,5 @@ export class DataDurService {
     }
     Object.assign(voitureOriginale, voitureModifiee);
     return this.gereIsBusy(Promise.resolve(voitureOriginale));
-  }
-
-  gereIsBusy<T>(promesse: Promise<T>): Promise<T>{
-    this.isBusy=true;
-    promesse.then(c=>{
-      this.isBusy = false;
-    }).catch(c=>{
-      this.isBusy = false;
-    });
-    return promesse;
   }
 }

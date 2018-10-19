@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DataDurService } from 'src/app/services/data-dur.service';
+import { ServiceBase } from 'src/app/services/service-base.service';
 import { Voiture } from 'src/app/models/voiture';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-voiture-details',
@@ -20,7 +21,15 @@ export class VoitureDetailsComponent implements OnInit {
     modele: new FormControl('')
   })
 
-  constructor(private route: ActivatedRoute, private service: DataDurService) {}
+  save(){
+    var modifications = this.formGroup.value;
+    Object.assign(this.voitureAffichee, modifications);
+    this.service.updateVoiture(this.voitureAffichee!).then((v)=>{
+      this.location.back();
+    })
+  }
+
+  constructor(private route: ActivatedRoute, private service: ServiceBase, private location: Location) {}
 
   ngOnInit() {
     this.route.params.subscribe(c => {
